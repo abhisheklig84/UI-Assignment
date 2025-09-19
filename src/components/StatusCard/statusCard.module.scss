@@ -1,0 +1,11 @@
+.statusCardContainer {
+  display: flex;
+  min-width: 200px;
+  padding: 24px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  flex: 1 0 0;
+  border-radius: var(--16, 16px);
+  background: var(--Primary-Blue, #e3f5ff);
+}
