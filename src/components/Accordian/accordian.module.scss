@@ -1,0 +1,29 @@
+.accordionSection {
+  width: 100%;
+}
+
+.accordion {
+  width: 100%;
+  background-color: inherit;
+  color: #fff;
+  cursor: pointer;
+}
+
+.titleSection {
+  width: 100%;
+}
+
+.accordion:hover,
+.active {
+  color: #fff;
+}
+
+.accordionIcon {
+  margin-left: auto;
+}
+
+.accordionContent {
+  background-color: inherit;
+  overflow: hidden;
+  width: inherit;
+}

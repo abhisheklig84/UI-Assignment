@@ -1,0 +1,12 @@
+.layoutContainer {
+  display: flex;
+  align-items: flex-start;
+  height: 100dvh;
+  overflow: hidden;
+
+  .middleSection {
+    width: calc(100dvw - 492px);
+    height: 100dvh;
+    overflow-y: auto;
+  }
+}

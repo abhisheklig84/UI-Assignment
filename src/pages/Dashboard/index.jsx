@@ -1,14 +1,10 @@
-import { useDispatch, useSelector } from "react-redux"
-import { setLightMode } from "../../store/slices";
+import styles from "./dashboard.module.scss";
 
-const  DashBoard = ()=>{
-    // const dispatch = useDispatch()
-    // const {UiTheme} = useSelector(state => state)
-
-    // console.log(UiTheme);
-
-    return (
-        <div>DashBoard</div>
-    )
-}
-export default DashBoard
+const DashBoard = () => {
+  return (
+    <div className={styles.dashboardContainer}>
+      <h2>eCommerce</h2>
+    </div>
+  );
+};
+export default DashBoard;
