@@ -1,12 +1,23 @@
 .layoutContainer {
   display: flex;
-  align-items: flex-start;
   height: 100dvh;
   overflow: hidden;
 
+  .sidebar {
+    width: 240px;
+    flex-shrink: 0;
+    overflow: hidden;
+  }
+
   .middleSection {
-    width: calc(100dvw - 492px);
     height: 100dvh;
+    overflow-y: auto;
+  }
+
+  .notificationSidebar {
+    width: 280px;
+    flex-shrink: 0;
+    overflow-x: hidden !important;
     overflow-y: auto;
   }
 }

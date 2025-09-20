@@ -1,0 +1,77 @@
+.mapSection {
+  padding: var(--24, 24px);
+  border-radius: var(--16, 16px);
+  height: 320px;
+
+  &.light {
+    background: var(--Primary-Light, #f7f9fb);
+  }
+  &.dark {
+    background: var(--Primary-Light, rgba(255, 255, 255, 0.05));
+  }
+
+  h2 {
+    margin: 0;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 20px; /* 142.857% */
+    margin-bottom: 16px;
+
+    &.light {
+      color: var(--black-100, #1c1c1c);
+    }
+    &.dark {
+      color: var(--black-100, #fff);
+    }
+  }
+
+  .loadingContainer {
+    height: 120px;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  .mapContainer {
+    height: 120px;
+    overflow: hidden;
+    margin-bottom: 16px;
+
+    svg {
+      width: 100%;
+      height: 188px;
+      margin-top: -53px;
+    }
+  }
+
+  .countryList {
+    .individualList {
+      margin-bottom: 16px;
+      &:last-of-type {
+        margin-bottom: 0px;
+      }
+      .topContainer {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        p {
+          font-size: 12px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: 18px; /* 150% */
+
+          &.light {
+            color: var(--black-100, #1c1c1c);
+          }
+          &.dark {
+            color: var(--black-100, #fff);
+          }
+        }
+      }
+    }
+  }
+}

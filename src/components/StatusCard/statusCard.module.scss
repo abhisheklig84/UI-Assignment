@@ -1,11 +1,104 @@
 .statusCardContainer {
   display: flex;
-  min-width: 200px;
   padding: 24px;
   flex-direction: column;
   align-items: flex-start;
   gap: 8px;
   flex: 1 0 0;
-  border-radius: var(--16, 16px);
-  background: var(--Primary-Blue, #e3f5ff);
+  border-radius: 16px;
+
+  h2 {
+    color: var(--black-100, #1c1c1c);
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 20px; /* 142.857% */
+    padding: 0;
+  }
+
+  &.light0 {
+    background: #e3f5ff;
+  }
+  &.light1 {
+    background: #f7f9fb;
+  }
+  &.light2 {
+    background: #f7f9fb;
+  }
+  &.light3 {
+    background: #e5ecf6;
+  }
+  &.dark0 {
+    background-color: #e3f5ff;
+  }
+  &.dark1 {
+    background: var(--Primary-Light, rgba(255, 255, 255, 0.05));
+
+    h2 {
+      color: #ffffff;
+    }
+
+    .bottomContainer {
+      .value,
+      .percentage {
+        color: #ffffff;
+        svg {
+          fill: "#fff";
+        }
+      }
+    }
+  }
+  &.dark2 {
+    background: var(--Primary-Light, rgba(255, 255, 255, 0.05));
+
+    h2 {
+      color: #ffffff;
+    }
+
+    .bottomContainer {
+      .value,
+      .percentage {
+        color: #ffffff;
+        svg {
+          fill: "#fff";
+        }
+      }
+    }
+  }
+  &.dark3 {
+    background: var(--Primary-Purple, #e5ecf6);
+  }
+
+  .bottomContainer {
+    background-color: "red";
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+
+    .value {
+      color: var(--black-100, #1c1c1c);
+      font-size: 24px;
+      font-style: normal;
+      font-weight: 600;
+      line-height: 36px; /* 150% */
+    }
+
+    .percentage {
+      color: var(--black-100, #1c1c1c);
+      font-size: 12px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 18px; /* 150% */
+      display: flex;
+      align-items: center;
+      gap: 4px;
+
+      &.rotate {
+        svg {
+          transform: rotate(180deg);
+        }
+      }
+    }
+  }
 }

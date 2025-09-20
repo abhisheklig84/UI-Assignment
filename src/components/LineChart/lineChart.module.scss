@@ -1,0 +1,99 @@
+.lineChartContainer {
+  height: 318px;
+
+  .toplabel {
+    display: flex;
+    align-items: center;
+    margin-bottom: 16px;
+    gap: 16px;
+    h2 {
+      margin: 0;
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 600;
+      line-height: 20px; /* 142.857% */
+    }
+
+    .line {
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 20px; /* 142.857% */
+      width: 1px;
+      height: 20px;
+    }
+
+    .legend {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 2px 8px;
+      p {
+        font-size: 12px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 18px; /* 150% */
+        span {
+          font-weight: 600;
+        }
+      }
+
+      .dot {
+        width: 6px;
+        height: 6px;
+        flex-shrink: 0;
+        background-color: #1c1c1c;
+        border-radius: 50%;
+      }
+
+      .lightDot {
+        width: 6px;
+        height: 6px;
+        flex-shrink: 0;
+        background-color: #a8c5da;
+        border-radius: 50%;
+      }
+    }
+    &.dark {
+      h2 {
+        color: var(--black-100, #fff);
+      }
+      .line {
+        background-color: rgba(255, 255, 255, 0.2);
+      }
+      .legend {
+        color: var(--black-100, #fff);
+        .dot {
+          background-color: #c6c7f8;
+        }
+      }
+    }
+    &.light {
+      h2 {
+        color: var(--black-100, #1c1c1c);
+      }
+      .line {
+        background-color: rgba(28, 28, 28, 0.2);
+      }
+      .legend {
+        p {
+          color: var(--black-100, #1c1c1c);
+        }
+      }
+    }
+  }
+
+  .lineChartSection {
+    position: relative;
+    width: inherit;
+    height: calc(100% - 40px);
+    // padding-bottom: 50%;
+
+    &.lineChartContainer {
+      width: 100%; /* full width of parent */
+      max-width: 700px; /* optional max width */
+      margin: 0 auto; /* center it */
+      position: relative; /* needed for aspect ratio */
+    }
+  }
+}

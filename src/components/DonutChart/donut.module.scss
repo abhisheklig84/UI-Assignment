@@ -1,0 +1,107 @@
+.donutContainer {
+  min-width: 200px;
+  max-width: 272px;
+  padding: var(--24, 24px);
+  gap: var(--16, 16px);
+
+  height: 315px;
+  border-radius: var(--16, 16px);
+
+  &.dark {
+    background: var(--Primary-Light, rgba(255, 255, 255, 0.05));
+    h2 {
+      color: var(--black-100, #fff);
+    }
+  }
+
+  &.light {
+    background: var(--Primary-Light, #f7f9fb);
+    h2 {
+      color: #1c1c1c;
+    }
+  }
+
+  h2 {
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 20px;
+    margin-bottom: 16px;
+  }
+
+  .chart {
+    canvas {
+      height: 130px;
+    }
+  }
+
+  .legendWrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .legendContainer {
+      display: flex;
+      flex-direction: column;
+      margin-top: 16px;
+      gap: 12px;
+      width: 100%;
+
+      .individualLegend {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 48px;
+
+        .left {
+          display: flex;
+          align-items: center;
+          gap: 6px;
+          width: 100px;
+          .color {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+          }
+          p {
+            font-size: 12px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 18px; /* 150% */
+
+            &.light {
+              color: var(--black-100, #1c1c1c);
+            }
+            &.dark {
+              color: var(--black-100, #fff);
+            }
+          }
+        }
+
+        .right {
+          font-size: 12px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: 18px; /* 150% */
+          text-align: left;
+          width: 50px;
+          p {
+            color: var(--black-100, #1c1c1c);
+            font-size: 12px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 18px; /* 150% */
+
+            &.light {
+              color: var(--black-100, #1c1c1c);
+            }
+            &.dark {
+              color: var(--black-100, #fff);
+            }
+          }
+        }
+      }
+    }
+  }
+
+  //style={{ width: "100%", maxWidth: "400px", margin: "0 auto" }}
+}

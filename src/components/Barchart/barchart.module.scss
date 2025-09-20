@@ -1,0 +1,24 @@
+.barChartContainer {
+  flex: 1;
+  padding: 24px;
+  height: 260px;
+  border-radius: 16px;
+  &.dark {
+    background-color: #ffffff0d;
+    h3 {
+      color: var(--black-100, #fff);
+    }
+  }
+  &.light {
+    background-color: #f7f9fb;
+    h3 {
+      color: var(--black-100, #1c1c1c);
+    }
+  }
+  h3 {
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 20px; /* 142.857% */
+  }
+}

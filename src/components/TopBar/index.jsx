@@ -5,7 +5,11 @@ import Sun from "../../assets/images/topBarIcons/Sun";
 import ClockCounterClockwise from "../../assets/images/topBarIcons/ClockCounterClockwise";
 import Bell from "../../assets/images/topBarIcons/Bell";
 import { useDispatch, useSelector } from "react-redux";
-import { toogleTheme } from "../../store/slices";
+import {
+  toogleNotificationbar,
+  toogleSidebar,
+  toogleTheme,
+} from "../../store/slices";
 import Input from "../Input";
 
 const TopBar = () => {
@@ -19,7 +23,9 @@ const TopBar = () => {
       }`}
     >
       <div className={styles.leftSection}>
-        <Sidebar fill={uiTheme.mode !== "light" ? "#FFFFFF" : "#1c1c1c"} />
+        <div onClick={() => dispatch(toogleSidebar())}>
+          <Sidebar fill={uiTheme.mode !== "light" ? "#FFFFFF" : "#1c1c1c"} />
+        </div>
         <Star fill={uiTheme.mode !== "light" ? "#FFFFFF" : "#1c1c1c"} />
         <p className={uiTheme.mode !== "light" ? styles.light : styles.dark}>
           Dashboards
@@ -46,7 +52,9 @@ const TopBar = () => {
             fill={uiTheme.mode !== "light" ? "#FFFFFF" : "#1c1c1c"}
           />
           <Bell fill={uiTheme.mode !== "light" ? "#FFFFFF" : "#1c1c1c"} />
-          <Sidebar fill={uiTheme.mode !== "light" ? "#FFFFFF" : "#1c1c1c"} />
+          <div onClick={() => dispatch(toogleNotificationbar())}>
+            <Sidebar fill={uiTheme.mode !== "light" ? "#FFFFFF" : "#1c1c1c"} />
+          </div>
         </div>
       </div>
     </div>
