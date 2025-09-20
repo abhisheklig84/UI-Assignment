@@ -2,26 +2,46 @@ import TopBar from "../../TopBar";
 import styles from "./layout.module.scss";
 import NavigationSideBar from "../../NavigationSideBar";
 import NotificationSideBar from "../../NotificationSideBar";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { motion } from "framer-motion";
+import useWindowSize from "../../../hooks/useWindowSize";
+import { closeNotificationBar, closeSidebar } from "../../../store/slices";
+import { useEffect } from "react";
 
 const Layout = ({ children }) => {
-  const { showNotificationBar, showSidebar } = useSelector(
+  const { width: windowSize } = useWindowSize();
+  const { showNotificationBar, showSidebar, mode } = useSelector(
     (state) => state?.uiTheme
   );
-
+  const dispatch = useDispatch();
   const sidebarFullWidth = 240;
   const notificationFullWidth = 280;
-
   const sidebarWidth = showSidebar ? sidebarFullWidth : 0;
   const notificationWidth = showNotificationBar ? notificationFullWidth : 0;
+
+  const transitionSettings = {
+    type: "spring",
+    stiffness: 150,
+    damping: 25,
+  };
+
+  useEffect(() => {
+    if (windowSize < 991) {
+      if (windowSize < 991) {
+        dispatch(closeSidebar());
+        dispatch(closeNotificationBar());
+      }
+    }
+  }, [windowSize]);
 
   return (
     <div className={styles.layoutContainer}>
       <motion.div
-        className={styles.sidebar}
+        className={`${styles.sidebar} ${
+          mode === "light" ? styles.light : styles.dark
+        }`}
         animate={{ width: sidebarWidth }}
-        transition={{ type: "tween", duration: 0.3 }}
+        transition={transitionSettings}
       >
         <NavigationSideBar />
       </motion.div>
@@ -29,18 +49,40 @@ const Layout = ({ children }) => {
       <motion.div
         className={styles.middleSection}
         animate={{
-          width: `calc(100vw - ${sidebarWidth + notificationWidth}px)`,
+          width:
+            windowSize > 991
+              ? `calc(100vw - ${sidebarWidth + notificationWidth}px)`
+              : "100%",
         }}
-        transition={{ type: "tween", duration: 0.3 }}
+        transition={transitionSettings}
+        onClick={() => {
+          if (windowSize < 991) {
+            dispatch(closeSidebar());
+            dispatch(closeNotificationBar());
+          }
+        }}
       >
         <TopBar />
-        {children}
+        <motion.div
+          className={styles.child}
+          animate={{
+            width:
+              windowSize > 991
+                ? `calc(100vw - ${sidebarWidth + notificationWidth}px)`
+                : "100%",
+          }}
+          transition={transitionSettings}
+        >
+          {children}
+        </motion.div>
       </motion.div>
 
       <motion.div
-        className={styles.notificationSidebar}
+        className={`${styles.notificationSidebar} ${
+          mode === "light" ? styles.light : styles.dark
+        }`}
         animate={{ width: notificationWidth }}
-        transition={{ type: "tween", duration: 0.3 }}
+        transition={transitionSettings}
       >
         <NotificationSideBar />
       </motion.div>

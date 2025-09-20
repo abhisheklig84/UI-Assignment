@@ -19,9 +19,20 @@ const themeSlice = createSlice({
     toogleNotificationbar: (state) => {
       state.showNotificationBar = !state.showNotificationBar;
     },
+    closeSidebar: (state) => {
+      state.showSidebar = false;
+    },
+    closeNotificationBar: (state) => {
+      state.showNotificationBar = false;
+    },
   },
 });
 
-export const { toogleTheme, toogleSidebar, toogleNotificationbar } =
-  themeSlice.actions;
+export const {
+  toogleTheme,
+  toogleSidebar,
+  toogleNotificationbar,
+  closeSidebar,
+  closeNotificationBar,
+} = themeSlice.actions;
 export default themeSlice.reducer;

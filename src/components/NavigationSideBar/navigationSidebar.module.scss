@@ -126,6 +126,7 @@
         font-style: normal;
         font-weight: 400;
         line-height: 20px;
+        white-space: nowrap;
         margin-bottom: 4px;
 
         &.light {
@@ -240,6 +241,7 @@
       padding: 4px 8px 4px 0;
       margin-left: 42px;
       cursor: pointer;
+      white-space: nowrap;
 
       &.light {
         color: var(--black-100, #1c1c1c);
@@ -250,4 +252,7 @@
       }
     }
   }
+  // @media (max-width: 575.98px) {
+  //   width: 280px;
+  // }
 }

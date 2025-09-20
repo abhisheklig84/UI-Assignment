@@ -89,6 +89,8 @@
         }
 
         .tableWrapper {
+          width: 100%;
+          overflow: auto;
           &.light {
             > table {
               thead {
@@ -231,6 +233,34 @@
 
       .rightSection {
         width: 100%;
+      }
+    }
+
+    .salesSection {
+      flex-direction: column;
+      .leftSalesSection {
+        flex: 1;
+        width: 100%;
+      }
+
+      .rightSalesSection {
+        flex: 1;
+        width: 100%;
+      }
+    }
+  }
+
+  @media (max-width: 575.98px) {
+    .topAnalyticsSection {
+      .leftSection {
+        width: 100%;
+        .topLeftSection {
+          flex-direction: column;
+        }
+
+        .bottomLeftSection {
+          flex-direction: column;
+        }
       }
     }
   }

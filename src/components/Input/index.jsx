@@ -23,11 +23,7 @@ const Input = ({
         uiTheme.mode === "light" ? styles.light : styles.dark
       }`}
     >
-      {hideSearchIcon ? (
-        ""
-      ) : (
-        <Search fill={uiTheme.mode === "light" ? "#1C1C1C" : "#FFFFFF"} />
-      )}
+      <Search fill={uiTheme.mode === "light" ? "#1C1C1C" : "#FFFFFF"} />
       <input
         id={id}
         type={type ? type : "text"}
@@ -41,9 +37,13 @@ const Input = ({
         max={max}
         className={uiTheme.mode === "light" ? styles.light : styles.dark}
       />{" "}
-      <p className={uiTheme.mode === "light" ? styles.light : styles.dark}>
-        ⌘/
-      </p>
+      {hideSearchIcon ? (
+        ""
+      ) : (
+        <p className={uiTheme.mode === "light" ? styles.light : styles.dark}>
+          ⌘/
+        </p>
+      )}
     </div>
   );
 };

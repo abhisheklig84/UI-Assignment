@@ -1,5 +1,6 @@
 .lineChartContainer {
   height: 318px;
+  overflow: hidden;
 
   .toplabel {
     display: flex;
@@ -93,6 +94,14 @@
       max-width: 700px;
       margin: 0 auto;
       position: relative;
+    }
+  }
+
+  @media (max-width: 991.98px) {
+    .toplabel {
+      scale: 0.8;
+      gap: 2px;
+      white-space: nowrap;
     }
   }
 }

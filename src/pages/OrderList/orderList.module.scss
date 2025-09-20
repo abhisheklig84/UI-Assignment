@@ -1,0 +1,29 @@
+.pagination {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  justify-content: flex-end;
+  margin-top: 30px;
+  padding-bottom: 50px;
+
+  li {
+    color: #5a5b60;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 30px;
+    letter-spacing: -1px;
+    cursor: pointer;
+
+    &.selected {
+      a {
+        color: #d0d2e3 !important;
+        background-color: #4f5664;
+      }
+    }
+    a {
+      padding: 8px 12px !important;
+      background-color: rgb(31, 33, 39);
+      color: #d0d2e3 !important;
+    }
+  }
+}

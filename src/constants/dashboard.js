@@ -71,3 +71,12 @@ export const locations = [
   { name: "Sydney", coordinates: [151.2093, -33.8688], value: 25000 },
   { name: "Singapore", coordinates: [103.8198, 1.3521], value: 61000 },
 ];
+
+export const linChartData = [
+  { month: "", current: 8, previous: 12, p: 12 },
+  { month: "Jan", current: 18, previous: 8, p: 8 },
+  { month: "Feb", current: 15, previous: 9, p: 9 },
+  { month: "Mar", current: 10, previous: 14, p: 14 },
+  { month: "Apr", current: 14, previous: 20 },
+  { month: "May", current: 24, previous: 21 },
+];
