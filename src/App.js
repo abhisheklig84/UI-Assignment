@@ -23,6 +23,13 @@ const App = () => {
             }
           />
         </Routes>
+
+        <Routes>
+          <Route
+            path="/order"
+            element={<Layout>{/* <OrderList /> */}</Layout>}
+          />
+        </Routes>
       </div>
     </Router>
   );

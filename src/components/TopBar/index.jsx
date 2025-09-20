@@ -23,7 +23,10 @@ const TopBar = () => {
       }`}
     >
       <div className={styles.leftSection}>
-        <div onClick={() => dispatch(toogleSidebar())}>
+        <div
+          onClick={() => dispatch(toogleSidebar())}
+          className={styles.svgContainer}
+        >
           <Sidebar fill={uiTheme.mode !== "light" ? "#FFFFFF" : "#1c1c1c"} />
         </div>
         <Star fill={uiTheme.mode !== "light" ? "#FFFFFF" : "#1c1c1c"} />
@@ -52,7 +55,10 @@ const TopBar = () => {
             fill={uiTheme.mode !== "light" ? "#FFFFFF" : "#1c1c1c"}
           />
           <Bell fill={uiTheme.mode !== "light" ? "#FFFFFF" : "#1c1c1c"} />
-          <div onClick={() => dispatch(toogleNotificationbar())}>
+          <div
+            onClick={() => dispatch(toogleNotificationbar())}
+            className={styles.svgContainer}
+          >
             <Sidebar fill={uiTheme.mode !== "light" ? "#FFFFFF" : "#1c1c1c"} />
           </div>
         </div>

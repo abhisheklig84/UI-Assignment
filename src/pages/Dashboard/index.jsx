@@ -62,7 +62,7 @@ const DashBoard = () => {
               uiTheme.mode === "light" ? styles.light : styles.dark
             }`}
           >
-            <LineChart />
+            {/* <LineChart /> */}
           </div>
 
           <div

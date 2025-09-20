@@ -11,6 +11,12 @@
     border-bottom: 1px solid var(--black-10, rgba(255, 255, 255, 0.1));
   }
 
+  .svgContainer {
+    svg {
+      margin-top: 4px !important;
+    }
+  }
+
   .leftSection {
     display: flex;
     align-items: center;

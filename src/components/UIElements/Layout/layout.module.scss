@@ -4,18 +4,18 @@
   overflow: hidden;
 
   .sidebar {
-    width: 240px;
     flex-shrink: 0;
     overflow: hidden;
   }
 
   .middleSection {
+    flex-grow: 1; // Take remaining space
     height: 100dvh;
     overflow-y: auto;
+    overflow-x: hidden;
   }
 
   .notificationSidebar {
-    width: 280px;
     flex-shrink: 0;
     overflow-x: hidden !important;
     overflow-y: auto;
