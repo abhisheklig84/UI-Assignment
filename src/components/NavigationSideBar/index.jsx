@@ -6,9 +6,11 @@ import ArrowLineRight from "../../assets/images/navigationSideBarIcons/ArrowLine
 import { useState } from "react";
 import Accordion from "../Accordian";
 import { dashboardList, pageList } from "../../constants/navigationSideBar";
+import { useNavigate } from "react-router-dom";
 
 const NavigationSideBar = () => {
   const { uiTheme } = useSelector((state) => state);
+  const navigate = useNavigate();
 
   const [selectedDashboard, setSelectedDashboard] = useState(0);
   const [selectedPage, setSelectedPage] = useState(0);
@@ -78,6 +80,12 @@ const NavigationSideBar = () => {
                 ${selectedDashboard === index ? styles.selected : ""}`}
                 onClick={() => {
                   setSelectedDashboard(index);
+                  if (index === 0) {
+                    navigate("/");
+                  }
+                  if (index === 1) {
+                    navigate("/order");
+                  }
                 }}
               >
                 <div
