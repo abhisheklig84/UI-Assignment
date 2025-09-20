@@ -1,29 +1,344 @@
-.pagination {
-  display: flex;
-  align-items: center;
-  list-style: none;
-  justify-content: flex-end;
-  margin-top: 30px;
-  padding-bottom: 50px;
+.orderListContainer {
+  width: calc(100% - 56px);
+  padding: 32px 28px 40px 28px;
 
-  li {
-    color: #5a5b60;
-    font-size: 18px;
-    font-weight: 500;
-    line-height: 30px;
-    letter-spacing: -1px;
-    cursor: pointer;
+  h2 {
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    padding: 4px 8px 4px 0;
+    line-height: 20px;
+    margin-bottom: 16px;
+    margin-top: 0;
 
-    &.selected {
-      a {
-        color: #d0d2e3 !important;
-        background-color: #4f5664;
-      }
+    &.light {
+      color: var(--black-100, #1c1c1c);
     }
-    a {
-      padding: 8px 12px !important;
-      background-color: rgb(31, 33, 39);
-      color: #d0d2e3 !important;
+
+    &.dark {
+      color: var(--black-100, #fff);
     }
   }
+
+  .topSection {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px;
+    gap: 16px;
+    margin-bottom: 12px;
+    border-radius: var(--8, 8px);
+
+    &.light {
+      background: var(--Primary-Light, #f7f9fb);
+    }
+    &.dark {
+      background-color: rgba(255, 255, 255, 0.05);
+    }
+
+    .leftSection {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+
+      > div {
+        padding: 4px;
+        cursor: pointer;
+      }
+    }
+  }
+
+  .tableWrapper {
+    width: 100%;
+    overflow-x: auto;
+    &.light {
+      > table {
+        tr {
+          &::before {
+            content: "";
+            border-bottom: 1px solid rgba(28, 28, 28, 0.4);
+          }
+        }
+
+        th {
+          color: var(--black-40, rgba(28, 28, 28, 0.4));
+        }
+
+        td {
+          color: #1c1c1c;
+        }
+      }
+    }
+
+    &.dark {
+      > table {
+        tr {
+          &::before {
+            content: "";
+            border-bottom: 1px solid #5a5b60;
+          }
+
+          th {
+            color: var(--black-40, rgba(255, 255, 255, 0.4));
+          }
+        }
+
+        td {
+          color: var(--black-100, #fff);
+        }
+      }
+    }
+
+    > table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0 5px;
+      border-radius: 20px;
+
+      tr {
+        white-space: nowrap;
+
+        &::before {
+          content: "";
+          position: absolute;
+          top: 0px;
+          bottom: 0px;
+          left: 0;
+          right: 0;
+          width: 100%;
+          height: 100%;
+          pointer-events: none;
+        }
+
+        th {
+          font-size: 12px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: 18px; /* 150% */
+          padding: 8px 12px;
+          background-color: inherit;
+
+          &:first-child {
+            text-align: left;
+          }
+        }
+      }
+      tr {
+        text-align: left;
+        position: relative;
+
+        &::before {
+          content: "";
+          position: absolute;
+          top: 0px;
+          bottom: 0px;
+          left: 0;
+          right: 0;
+          width: 100%;
+          height: 100%;
+          pointer-events: none;
+        }
+      }
+
+      td {
+        font-size: 12px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 18px; /* 150% */
+        white-space: nowrap;
+        background-color: inherit;
+        padding: 0px 12px;
+        height: 24px;
+        padding: 8px 12px;
+        text-align: left;
+      }
+    }
+  }
+
+  .pagination {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    justify-content: flex-end;
+    margin-top: 12px;
+    padding-bottom: 50px;
+
+    &.light {
+      li {
+        color: #1c1c1c;
+
+        &.selected {
+          border-radius: var(--8, 8px);
+          background: var(--black-5, rgba(28, 28, 28, 0.05));
+          a {
+            color: #1c1c1c;
+          }
+        }
+      }
+    }
+
+    &.dark {
+      li {
+        color: #fff;
+        &.selected {
+          border-radius: var(--8, 8px);
+          background: var(--black-5, rgba(255, 255, 255, 0.1));
+          a {
+            color: #d0d2e3;
+          }
+        }
+      }
+    }
+
+    li {
+      padding: 0 4px;
+      font-size: 18px;
+      font-weight: 500;
+      line-height: 30px;
+      letter-spacing: -1px;
+      cursor: pointer;
+
+      a {
+        padding: 4px 8px !important;
+        background-color: transparent;
+
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 20px; /* 142.857% */
+      }
+    }
+  }
+}
+
+.checkBoxSection {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+
+  &.light {
+    color: #1c1c1c;
+  }
+  &.dark {
+    color: var(--black-100, #fff);
+  }
+
+  p {
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 18px;
+  }
+  svg {
+    cursor: pointer;
+  }
+}
+
+.orderIdContainer {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+
+  &.light {
+    color: rgba(28, 28, 28, 0.4);
+  }
+  &.dark {
+    color: rgba(255, 255, 255, 0.4);
+  }
+
+  svg {
+    cursor: pointer;
+  }
+}
+
+.userColoumn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  p {
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 18px;
+  }
+
+  &.light {
+    color: rgba(28, 28, 28, 0.4);
+
+    p {
+      color: #1c1c1c;
+    }
+  }
+  &.dark {
+    color: rgba(255, 255, 255, 0.4);
+    p {
+      color: #fff;
+    }
+  }
+}
+
+.calendar {
+  gap: 8px;
+  svg {
+    margin-top: 5px;
+  }
+}
+
+.statusContainer {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  > div {
+    width: 6px;
+    height: 6px;
+    flex-shrink: 0;
+    border-radius: 50%;
+  }
+
+  p {
+    color: #939495;
+  }
+  > div {
+    background-color: #939495;
+  }
+  &.progress {
+    p {
+      color: #8a8cd9;
+    }
+    > div {
+      background-color: #8a8cd9;
+    }
+  }
+  &.completed {
+    p {
+      color: #4aa785;
+    }
+    > div {
+      background-color: #4aa785;
+    }
+  }
+  &.pending {
+    p {
+      color: #59a8d4;
+    }
+    > div {
+      background-color: #59a8d4;
+    }
+  }
+  &.approved {
+    p {
+      color: #ffc555;
+    }
+    > div {
+      background-color: #ffc555;
+    }
+  }
+}
+
+.navigationButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 10px;
 }
