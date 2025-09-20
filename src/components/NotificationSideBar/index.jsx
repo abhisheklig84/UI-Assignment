@@ -57,7 +57,7 @@ const NotificationSideBar = () => {
               key={index}
             >
               <div className={styles.iconWrapper}>
-                <img src={item?.icon} alt="image" />
+                <img src={item?.icon} alt={`asd +${item?.icon}`} />
 
                 {index !== arr.length - 1 ? (
                   <div
@@ -102,7 +102,7 @@ const NotificationSideBar = () => {
               key={index}
             >
               <div className={styles.iconWrapper}>
-                <img src={item?.icon} alt="image" />
+                <img src={item?.icon} alt={item?.title} />
               </div>
               <div className={styles.contentSection}>
                 <p

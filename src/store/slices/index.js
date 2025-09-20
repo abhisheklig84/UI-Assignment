@@ -4,6 +4,7 @@ const initialState = {
   mode: "light",
   showSidebar: true,
   showNotificationBar: true,
+  selectedDashBoardIndex: 0,
 };
 
 const themeSlice = createSlice({
@@ -25,6 +26,9 @@ const themeSlice = createSlice({
     closeNotificationBar: (state) => {
       state.showNotificationBar = false;
     },
+    changeDashBoardIndex: (state, action) => {
+      state.selectedDashBoardIndex = action.payload;
+    },
   },
 });
 
@@ -34,5 +38,6 @@ export const {
   toogleNotificationbar,
   closeSidebar,
   closeNotificationBar,
+  changeDashBoardIndex,
 } = themeSlice.actions;
 export default themeSlice.reducer;

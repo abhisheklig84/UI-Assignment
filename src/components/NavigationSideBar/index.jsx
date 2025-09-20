@@ -1,18 +1,19 @@
 import styles from "./navigationSidebar.module.scss";
 import ProfileImage from "../../assets/images/navigationSideBarIcons/profile.png";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 import ArrowLineRight from "../../assets/images/navigationSideBarIcons/ArrowLineRight";
 import { useState } from "react";
 import Accordion from "../Accordian";
 import { dashboardList, pageList } from "../../constants/navigationSideBar";
 import { useNavigate } from "react-router-dom";
+import { changeDashBoardIndex } from "../../store/slices";
 
 const NavigationSideBar = () => {
   const { uiTheme } = useSelector((state) => state);
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
-  const [selectedDashboard, setSelectedDashboard] = useState(0);
   const [selectedPage, setSelectedPage] = useState(0);
 
   return (
@@ -77,9 +78,13 @@ const NavigationSideBar = () => {
                 className={`${styles.individualItemInList} ${
                   uiTheme.mode === "light" ? styles.light : styles.dark
                 }
-                ${selectedDashboard === index ? styles.selected : ""}`}
+                ${
+                  uiTheme?.selectedDashBoardIndex === index
+                    ? styles.selected
+                    : ""
+                }`}
                 onClick={() => {
-                  setSelectedDashboard(index);
+                  dispatch(changeDashBoardIndex(index));
                   if (index === 0) {
                     navigate("/");
                   }
@@ -91,11 +96,15 @@ const NavigationSideBar = () => {
                 <div
                   className={`${styles.whiteLine} ${
                     uiTheme.mode === "light" ? styles.light : styles.dark
-                  } ${selectedDashboard === index ? styles.show : styles.hide}`}
+                  } ${
+                    uiTheme?.selectedDashBoardIndex === index
+                      ? styles.show
+                      : styles.hide
+                  }`}
                 />
                 <div
                   className={
-                    selectedDashboard !== index
+                    uiTheme?.selectedDashBoardIndex !== index
                       ? styles.showArrow
                       : styles.hideArrow
                   }

@@ -72,12 +72,15 @@
   }
 
   @media (max-width: 1199.98px) {
-    // align-items: flex-start;
-    // flex-direction: column;
-    // gap: 15px;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 15px;
 
-    // .rightSection {
-    //   float: right;
-    // }
+    .rightSection {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+    }
   }
 }

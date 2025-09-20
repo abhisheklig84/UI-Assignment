@@ -4,13 +4,11 @@ import { useSelector } from "react-redux";
 
 const ProgressBar = ({ progress = 0 }) => {
   const { uiTheme } = useSelector((state) => state);
-  const [width, setWidth] = useState(0);
+  const [, setWidth] = useState(0);
 
   useEffect(() => {
     setWidth(progress);
   }, [progress]);
-
-  console.log(progress);
 
   return (
     <div

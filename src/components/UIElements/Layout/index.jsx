@@ -32,6 +32,7 @@ const Layout = ({ children }) => {
         dispatch(closeNotificationBar());
       }
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [windowSize]);
 
   return (
