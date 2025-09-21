@@ -10,10 +10,10 @@
     padding: 4px 8px;
     margin-bottom: 16px;
     &.dark {
-      color: var(--black-100, #fff);
+      color: #fff;
     }
     &.light {
-      color: var(--black-100, #1c1c1c);
+      color: #1c1c1c;
     }
   }
 
@@ -64,14 +64,14 @@
 
       .salesTableContainer {
         padding: 24px;
-        border-radius: var(--16, 16px);
+        border-radius: 16px;
         margin-bottom: 28px;
 
         &.light {
-          background: var(--Primary-Light, #f7f9fb);
+          background: #f7f9fb;
         }
         &.dark {
-          background: var(--Primary-Light, rgba(255, 255, 255, 0.05));
+          background: rgba(255, 255, 255, 0.05);
         }
 
         h2 {
@@ -81,10 +81,10 @@
           line-height: 20px;
           margin-bottom: 8px;
           &.dark {
-            color: var(--black-100, #fff);
+            color: #fff;
           }
           &.light {
-            color: var(--black-100, #1c1c1c);
+            color: #1c1c1c;
           }
         }
 
@@ -103,7 +103,7 @@
                   }
 
                   th {
-                    color: var(--black-40, rgba(28, 28, 28, 0.4));
+                    color: rgba(28, 28, 28, 0.4);
                   }
                 }
               }
@@ -126,13 +126,13 @@
                   }
 
                   th {
-                    color: var(--black-40, rgba(255, 255, 255, 0.4));
+                    color: rgba(255, 255, 255, 0.4);
                   }
                 }
               }
 
               td {
-                color: var(--black-100, #fff);
+                color: #fff;
               }
             }
           }
@@ -202,15 +202,15 @@
 
       .revenueLineChartContainer {
         padding: 24px;
-        border-radius: var(--16, 16px);
+        border-radius: 16px;
         margin-bottom: 28px;
         height: 322px;
 
         &.light {
-          background: var(--Primary-Light, #f7f9fb);
+          background: #f7f9fb;
         }
         &.dark {
-          background: var(--Primary-Light, rgba(255, 255, 255, 0.05));
+          background: rgba(255, 255, 255, 0.05);
         }
       }
     }
@@ -226,7 +226,6 @@
   @media (max-width: 1399.98px) {
     .topAnalyticsSection {
       flex-direction: column;
-
       .leftSection {
         width: 100%;
       }
@@ -238,6 +237,7 @@
 
     .salesSection {
       flex-direction: column;
+      gap: 0px;
       .leftSalesSection {
         flex: 1;
         width: 100%;

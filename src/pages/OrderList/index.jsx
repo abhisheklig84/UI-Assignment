@@ -10,14 +10,48 @@ import Calendar from "../../assets/images/orderIcons/Calendar";
 import ArrowsDownUp from "../../assets/images/orderIcons/ArrowsDownUp";
 import TickCheckbox from "../../assets/images/orderIcons/TickCheckbox";
 import UnTickCheckbox from "../../assets/images/orderIcons/UnTickCheckbox";
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import ArrowLineLeft from "../../assets/images/orderIcons/ArrowLineLeft";
 import ArrowLineRight from "../../assets/images/orderIcons/ArrowLineRight";
+import ProfilePictureOne from "../../assets/images/notificationSideBarIcons/3D05.png";
 
 const OrderList = () => {
+  const pageSize = 5;
+
   const { uiTheme } = useSelector((state) => state);
   const [tableData, setTableData] = useState(orderData);
   const [selectedOrder, setSelectedOrder] = useState([]);
+  const [currentPage, setCurrentPage] = useState(0);
+  const [searchTerm, setSearchTerm] = useState("");
+  const [sortType, setSortType] = useState("none");
+
+  const filteredData = useMemo(() => {
+    if (!searchTerm) return tableData;
+    return tableData.filter((item) =>
+      Object.values(item).some((val) =>
+        String(val).toLowerCase().includes(searchTerm.toLowerCase())
+      )
+    );
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [searchTerm, tableData]);
+
+  const pageCount = Math.ceil(filteredData.length / pageSize);
+
+  const sortedData = useMemo(() => {
+    let sorted = [...filteredData];
+
+    if (sortType !== "none") {
+      sorted.sort((a, b) => {
+        const numA = parseInt(a.orderId.replace("#CM", ""), 10);
+        const numB = parseInt(b.orderId.replace("#CM", ""), 10);
+        return sortType === "asc" ? numA - numB : numB - numA;
+      });
+    }
+
+    const start = currentPage * pageSize;
+    const end = start + pageSize;
+    return sorted.slice(start, end);
+  }, [filteredData, sortType, currentPage]);
 
   const orderCol = [
     {
@@ -166,7 +200,23 @@ const OrderList = () => {
         }`}
       >
         <div className={styles.leftSection}>
-          <div>
+          <div
+            onClick={() =>
+              setTableData([
+                ...tableData,
+                {
+                  id: tableData.length + 1,
+                  orderId: "#CM9801",
+                  user: "Natali Craig",
+                  project: "Landing Page",
+                  address: "Meadow Lane Oakland",
+                  date: "Just now",
+                  status: "In Progress",
+                  profile: ProfilePictureOne,
+                },
+              ])
+            }
+          >
             <Add fill={uiTheme?.mode === "light" ? "#1C1C1C" : "white"} />
           </div>
           <div>
@@ -174,13 +224,33 @@ const OrderList = () => {
               fill={uiTheme?.mode === "light" ? "#1C1C1C" : "white"}
             />
           </div>
-          <div>
+          <div
+            onClick={() => {
+              if (sortType === "none") {
+                setSortType("asc");
+              }
+              if (sortType === "asc") {
+                setSortType("des");
+              }
+              if (sortType === "des") {
+                setSortType("none");
+              }
+            }}
+          >
             <ArrowsDownUp
               fill={uiTheme?.mode === "light" ? "#1C1C1C" : "white"}
             />
           </div>
         </div>
-        <Input placeholder={"Search"} hideSearchIcon={true} />
+        <Input
+          placeholder={"Search"}
+          hideSearchIcon={true}
+          value={searchTerm}
+          onChange={(e) => {
+            setSearchTerm(e.target.value);
+            setCurrentPage(0);
+          }}
+        />
       </div>
 
       <div
@@ -188,7 +258,7 @@ const OrderList = () => {
           uiTheme.mode === "light" ? styles.light : styles.dark
         }`}
       >
-        <TableComponent columns={orderCol} data={tableData} className={""} />
+        <TableComponent columns={orderCol} data={sortedData} className={""} />
       </div>
 
       <>
@@ -208,8 +278,6 @@ const OrderList = () => {
             </div>
           }
           breakLabel={<span className="paginationBreak">..</span>}
-          pageCount={5}
-          onPageChange={(e) => ""}
           pageRangeDisplayed={5}
           containerClassName={`${styles.pagination} ${
             uiTheme?.mode === "light" ? styles.light : styles.dark
@@ -217,7 +285,9 @@ const OrderList = () => {
           activeClassName={styles.selected}
           pageClassName={styles.pageItem}
           pageLinkClassName={styles.pageLink}
-          forcePage={0}
+          onPageChange={({ selected }) => setCurrentPage(selected)}
+          pageCount={pageCount}
+          forcePage={currentPage}
         />
       </>
     </div>

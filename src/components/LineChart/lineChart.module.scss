@@ -57,13 +57,13 @@
     }
     &.dark {
       h2 {
-        color: var(--black-100, #fff);
+        color: #fff;
       }
       .line {
         background-color: rgba(255, 255, 255, 0.2);
       }
       .legend {
-        color: var(--black-100, #fff);
+        color: #fff;
         .dot {
           background-color: #c6c7f8;
         }
@@ -71,14 +71,14 @@
     }
     &.light {
       h2 {
-        color: var(--black-100, #1c1c1c);
+        color: #1c1c1c;
       }
       .line {
         background-color: rgba(28, 28, 28, 0.2);
       }
       .legend {
         p {
-          color: var(--black-100, #1c1c1c);
+          color: #1c1c1c;
         }
       }
     }

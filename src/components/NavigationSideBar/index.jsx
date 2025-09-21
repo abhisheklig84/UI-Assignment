@@ -7,14 +7,15 @@ import { useState } from "react";
 import Accordion from "../Accordian";
 import { dashboardList, pageList } from "../../constants/navigationSideBar";
 import { useNavigate } from "react-router-dom";
-import { changeDashBoardIndex } from "../../store/slices";
+import { changeDashBoardIndex, closeSidebar } from "../../store/slices";
+import Add from "../../assets/images/orderIcons/Add";
 
 const NavigationSideBar = () => {
   const { uiTheme } = useSelector((state) => state);
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
-  const [selectedPage, setSelectedPage] = useState(0);
+  const [selectedPage, setSelectedPage] = useState(null);
 
   return (
     <div
@@ -22,6 +23,16 @@ const NavigationSideBar = () => {
         uiTheme.mode === "light" ? styles.light : styles.dark
       }`}
     >
+      <div
+        className={`${styles.closeBtn} `}
+        onClick={() => dispatch(closeSidebar())}
+      >
+        <Add
+          fill={uiTheme?.mode === "light" ? "#1C1C1C" : "white"}
+          height={30}
+          width={30}
+        />
+      </div>
       <div className={styles.profileSection}>
         <img src={ProfileImage} alt="ProfileImage" />
         <p
@@ -84,12 +95,13 @@ const NavigationSideBar = () => {
                     : ""
                 }`}
                 onClick={() => {
-                  dispatch(changeDashBoardIndex(index));
                   if (index === 0) {
                     navigate("/");
+                    dispatch(changeDashBoardIndex(index));
                   }
                   if (index === 1) {
                     navigate("/order");
+                    dispatch(changeDashBoardIndex(index));
                   }
                 }}
               >

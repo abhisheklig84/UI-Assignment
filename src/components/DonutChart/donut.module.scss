@@ -1,20 +1,20 @@
 .donutContainer {
   min-width: 200px;
-  padding: var(--24, 24px);
-  gap: var(--16, 16px);
+  padding: 24px;
+  gap: 16px;
 
   height: 315px;
-  border-radius: var(--16, 16px);
+  border-radius: 16px;
 
   &.dark {
-    background: var(--Primary-Light, rgba(255, 255, 255, 0.05));
+    background: rgba(255, 255, 255, 0.05);
     h2 {
-      color: var(--black-100, #fff);
+      color: #fff;
     }
   }
 
   &.light {
-    background: var(--Primary-Light, #f7f9fb);
+    background: #f7f9fb;
     h2 {
       color: #1c1c1c;
     }
@@ -68,10 +68,10 @@
             line-height: 18px; /* 150% */
 
             &.light {
-              color: var(--black-100, #1c1c1c);
+              color: #1c1c1c;
             }
             &.dark {
-              color: var(--black-100, #fff);
+              color: #fff;
             }
           }
         }
@@ -84,17 +84,17 @@
           text-align: left;
           width: 50px;
           p {
-            color: var(--black-100, #1c1c1c);
+            color: #1c1c1c;
             font-size: 12px;
             font-style: normal;
             font-weight: 400;
             line-height: 18px; /* 150% */
 
             &.light {
-              color: var(--black-100, #1c1c1c);
+              color: #1c1c1c;
             }
             &.dark {
-              color: var(--black-100, #fff);
+              color: #fff;
             }
           }
         }

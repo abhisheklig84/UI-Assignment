@@ -7,8 +7,9 @@
   &.light {
     border-bottom: 1px solid rgba(28, 28, 28, 0.1);
   }
+
   &.dark {
-    border-bottom: 1px solid var(--black-10, rgba(255, 255, 255, 0.1));
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   }
 
   .svgContainer {
@@ -40,14 +41,14 @@
       }
 
       &.light {
-        color: var(--black-40, rgba(255, 255, 255, 0.4));
+        color: rgba(255, 255, 255, 0.4);
 
         &.active {
           color: #ffffff;
         }
       }
       &.dark {
-        color: var(--black-40, rgba(28, 28, 28, 0.4));
+        color: rgba(28, 28, 28, 0.4);
         &.active {
           color: #1c1c1c;
         }
@@ -79,8 +80,17 @@
     .rightSection {
       width: 100%;
       display: flex;
-      align-items: center;
+      align-items: flex-end;
       justify-content: flex-end;
+
+      > div {
+        &:first-of-type {
+          width: 170px;
+        }
+        > input {
+          width: 100px;
+        }
+      }
     }
   }
 }

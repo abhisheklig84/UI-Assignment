@@ -1,13 +1,16 @@
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import styles from "./notificationSideBar.module.scss";
 import {
   activitiesList,
   contactList,
   notificationsList,
 } from "../../constants/notificationSidebar";
+import Add from "../../assets/images/orderIcons/Add";
+import { closeNotificationBar } from "../../store/slices";
 
 const NotificationSideBar = () => {
   const { uiTheme } = useSelector((state) => state);
+  const dispatch = useDispatch();
 
   return (
     <div
@@ -15,6 +18,16 @@ const NotificationSideBar = () => {
         uiTheme.mode === "light" ? styles.light : styles.dark
       }`}
     >
+      <div
+        className={`${styles.closeBtn} `}
+        onClick={() => dispatch(closeNotificationBar())}
+      >
+        <Add
+          fill={uiTheme?.mode === "light" ? "#1C1C1C" : "white"}
+          height={30}
+          width={30}
+        />
+      </div>
       <div className={styles.notificationSection}>
         <p className={uiTheme.mode === "light" ? styles.light : styles.dark}>
           Notifications

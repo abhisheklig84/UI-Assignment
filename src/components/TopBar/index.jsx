@@ -24,6 +24,7 @@ const TopBar = () => {
     >
       <div className={styles.leftSection}>
         <div
+          data-testid="sidebar-btn"
           onClick={(e) => {
             e.stopPropagation();
             dispatch(toogleSidebar());
@@ -51,7 +52,7 @@ const TopBar = () => {
       <div className={styles.rightSection}>
         <Input placeholder={"Search"} />
         <div className={styles.iconWrapper}>
-          <div onClick={() => dispatch(toogleTheme())}>
+          <div data-testid="sun-icon" onClick={() => dispatch(toogleTheme())}>
             <Sun fill={uiTheme.mode !== "light" ? "#FFFFFF" : "#1c1c1c"} />
           </div>
           <ClockCounterClockwise
