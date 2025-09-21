@@ -96,12 +96,14 @@ const NavigationSideBar = () => {
                 }`}
                 onClick={() => {
                   if (index === 0) {
+                    dispatch(closeSidebar());
                     navigate("/");
                     dispatch(changeDashBoardIndex(index));
                   }
                   if (index === 1) {
                     navigate("/order");
                     dispatch(changeDashBoardIndex(index));
+                    dispatch(closeSidebar());
                   }
                 }}
               >

@@ -209,6 +209,14 @@
       }
     }
   }
+
+  @media (max-width: 575.98px) {
+    .topSection {
+      .inputContainer {
+        width: 100px;
+      }
+    }
+  }
 }
 
 .checkBoxSection {

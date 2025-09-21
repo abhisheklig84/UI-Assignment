@@ -17,7 +17,7 @@ export const dashboardList = (uiTheme) => [
         fill={uiTheme.mode === "dark" ? "#fff" : "#1C1C1C"}
       />
     ),
-    title: "Default",
+    title: "HomePage",
   },
   {
     icon: (
@@ -27,7 +27,7 @@ export const dashboardList = (uiTheme) => [
         fill={uiTheme.mode === "dark" ? "#fff" : "#1C1C1C"}
       />
     ),
-    title: "eCommerce",
+    title: "Orders",
   },
   {
     icon: (

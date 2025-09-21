@@ -250,6 +250,7 @@ const OrderList = () => {
             setSearchTerm(e.target.value);
             setCurrentPage(0);
           }}
+          className={styles.inputContainer}
         />
       </div>
 
